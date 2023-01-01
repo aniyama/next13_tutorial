@@ -8,3 +8,9 @@ ps:
 	docker-compose ps
 ps-a:
 	docker-compose ps -a
+
+gen:
+	npx supabase login & \
+	npx supabase init & \
+	npx supabase link --project-ref $(name) & \
+	npx supabase gen types typescript --linked > database.types.ts
